@@ -5,7 +5,7 @@ This project demonstrates how to enrich streaming data pipelines with contextual
 ## 🔥 Features
 - **Real-Time Data Enrichment** – Merge incoming event streams with contextual data dynamically.
 - **Flexible Integration** – Support for multiple data sources, including REST APIs, databases, and in-memory caches.
-- **Streaming Framework Compatibility** – Works with Apache Kafka, Apache Flink, Spark Streaming, and more.
+- **Streaming Framework Compatibility** – Works with Hazelcast, Apache Kafka, Apache Flink, Spark Streaming, and more.
 - **Low Latency Processing** – Optimized for high-performance, real-time workloads.
 - **Scalability & Fault Tolerance** – Designed to handle large-scale data processing with resilience.
 
