@@ -113,11 +113,4 @@ JOIN extras
 ON extras.customer = orders.customer 
 AND extras.extra2 = 'Fries';
    ``` 
-9. Run:
-  ```sh
-  
-   ``` 
-10. Run:
-  ```sh
-  
-   ``` 
+
