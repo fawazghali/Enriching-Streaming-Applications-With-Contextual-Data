@@ -1,6 +1,3 @@
-# Enriching Streaming Applications With Contextual Data
-
-**Enhance real-time streaming applications by integrating external contextual data for improved analytics, decision-making, and user experience.**
 
 ## 🚀 Overview
 This project demonstrates how to enrich streaming data pipelines with contextual information from various sources (e.g., databases, APIs, or static reference data). By augmenting real-time data with relevant context, applications can gain deeper insights, improve personalization, and enable more intelligent automation.
