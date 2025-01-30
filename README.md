@@ -126,8 +126,7 @@ SELECT *
      window_start,
      window_end,
      id,
-     ROUND(MAX(price),2) AS high,
-     ROUND(MIN(price),2) AS low
+     ROUND(MAX(price),2) AS high
 FROM TABLE(TUMBLE(
      TABLE pizza_ordered,
      DESCRIPTOR(order_ts),
