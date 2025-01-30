@@ -99,18 +99,44 @@ OPTIONS (
 (8, 'BBQ', 'vegetables', 'Meatballs', 'Fruit'),
 (9, 'Sicilian', 'vegetables','Meatballs','Fruit');
    ``` 
-8. Run:
-   ```sql
-  SELECT
+8. JOIN to combine the static information with the streaming data:
+```sql 
+    SELECT
     orders.customer AS Symbol,
     extras.extra1 as extra1,
     extras.extra2 as extra2,
     extras.extra3 as extra3,
      ROUND(orders.price,2) AS Price,
      orders.amount AS "Sold"
-FROM orders
-JOIN extras
-ON extras.customer = orders.customer 
-AND extras.extra2 = 'Fries';
+    FROM orders
+    JOIN extras
+    ON extras.customer = orders.customer 
+    AND extras.extra2 = 'Fries';
+   ```
+
+9. Watermarking and Windowing:
+```sql 
+CREATE OR REPLACE VIEW pizza_ordered AS
+SELECT *
+  FROM TABLE(IMPOSE_ORDER(
+  TABLE orders,
+  DESCRIPTOR(order_ts),
+  INTERVAL '0.5' SECONDS));
+   ```
+10. Aggregation:
+```sql 
+  SELECT
+     window_start,
+     window_end,
+     id,
+     ROUND(MAX(price),2) AS high,
+     ROUND(MIN(price),2) AS low
+FROM TABLE(TUMBLE(
+     TABLE pizza_ordered,
+     DESCRIPTOR(order_ts),
+     INTERVAL '5' SECONDS
+))
+GROUP BY 1,2,3
+;
    ``` 
 
